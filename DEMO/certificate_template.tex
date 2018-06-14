@@ -1,0 +1,84 @@
+\documentclass[16pt]{scrartcl}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{pdflscape,setspace,amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\usepackage{tgschola}
+\usepackage{fourier-orns}
+\usepackage{graphicx}
+\usepackage{wallpaper}
+\usepackage[normalem]{ulem}
+\usepackage{charter}
+\usepackage{microtype}
+\hyphenpenalty 100000
+%=============================
+\input Zallman.fd
+\newcommand*\initfamily{\usefont{U}{Zallman}{xl}{n}}
+%=============================
+\usepackage{datatool}
+%=============================
+\def\signature#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
+\hfill \parbox[t]{2.8in}{\shortstack{\vrule width 2.8in height 0.4pt\\\small#2}}}
+\def\sigskip{\vskip0.4in plus 0.1in}
+        \def\beginskip{\vskip0.5875in plus 0.1in}
+%=============================
+\definecolor{title}{RGB}{180,0,0}
+\definecolor{other}{RGB}{171,0,255}
+\definecolor{name}{RGB}{255,0,0}
+\definecolor{phd}{RGB}{0,0,240}
+%=============================
+\begin{document}
+\begin{landscape}
+\linespread{2}\selectfont
+\pagestyle{empty}
+\TileWallPaper{1\paperwidth}{1\paperheight}{BORDERPATH}
+%=============================
+% \begin{minipage}[l]{1.5in}
+%  \includegraphics[width=.72\linewidth]{pec_emblem}
+% \end{minipage}
+%=============================
+{\centering
+{\onehalfspacing
+    {\LARGE\bfseries {{Programação para Humanidades}}}\\%\initfamily
+    \par}}
+%=============================
+% \begin{minipage}[r]{1.5in}
+% \includegraphics[width=.92\linewidth]{istelogo-1}
+% \end{minipage}
+\vskip1em
+%=============================
+\begin{minipage}[l]{1.5in}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{6.5in}
+{\centering
+{\onehalfspacing
+    {\Large\bfseries Certificado de Participação}\par
+    \vskip0.5em
+    {\color{pink}\Large\decofourleft\quad{\color{blue}\decoone}\quad\decofourright}
+    \par}}
+\end{minipage}
+\hfill
+\begin{minipage}[r]{1.5in}
+\end{minipage}
+\vskip1.8em
+
+{\doublespacing
+Conferimos o presente certificado a \textbf{NOMEALUNO} pela participação no I Curso de Programação para Ciências Sociais, ministrado por Alexia Aslan, Leonardo Diegues, Nathan Alves e Rafael Coelho, na \emph{Faculdade de Filosofia, Letras e Ciências Humanas} da Universidade de São Paulo (FFLCH - USP) durante o primeiro semestre de 2018. Carga horária: \textbf{HORASCOMPLETAS horas}.}
+
+\noindent
+%\beginskip
+{\singlespacing
+\vfill
+\begin{minipage}[l]{2.8in}
+ \sigskip \signature{\includegraphics[scale = 0.15]{PRIMEIRAASSINATURA}}{Professor Dr. Glauco Peres \\ DCP - USP }
+\end{minipage}
+\hfill
+\begin{minipage}[r]{2.8in}
+ \sigskip \signature{\includegraphics[scale = 0.15]{PRIMEIRAASSINATURA}}{Nathan Alves \\ Organizador }
+\end{minipage}}
+%=============================
+\pagebreak
+\end{landscape}
+\end{document}
