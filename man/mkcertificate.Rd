@@ -4,10 +4,25 @@
 \alias{mkcertificate}
 \title{Create Certificates of Attendance}
 \usage{
-mkcertificate(data, col_names, col_hours, col_email, col_id, ass_paths1,
-  ass_paths2, ex_dir = ".")
+mkcertificate(data, col_names, col_hours, col_email, ass_paths1, ass_paths2,
+  ex_dir = ".")
+}
+\arguments{
+\item{data}{dataframe with values}
+
+\item{col_names}{character value for the column with the names.}
+
+\item{col_hours}{character value for the column with the hours.}
+
+\item{col_email}{character value for the column with the email.}
+
+\item{ass_paths1}{}
+
+\item{ass_paths2}{}
+
+\item{ex_dir}{}
 }
 \description{
-\code(mkcertificate) creates certificates of attendance based on
+\code{mkcertificate} creates certificates of attendance based on
 data.
 }

@@ -7,5 +7,5 @@
 build_certificate(names, hours, email, ass_paths1, ass_paths2, ex_dir)
 }
 \description{
-\code(build_certificate) is the function responsible to generate the PDF.
+\code{build_certificate} is the function responsible to generate the PDF.
 }

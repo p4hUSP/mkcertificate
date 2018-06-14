@@ -1,20 +1,37 @@
-#' Create Certificates of Attendance
+#' Creates Certificates of Attendance
 #'
-#' \code(mkcertificate) creates certificates of attendance based on
+#' \code{mkcertificate} creates certificates of attendance based on
 #' data.
+#'
+#' @param data dataframe with values
+#'
+#' @param col_names character value for the column with the names.
+#'
+#' @param col_hours character value for the column with the hours.
+#'
+#' @param col_email character value for the column with the email.
+#'
+#' @param ass_paths1
+#'
+#' @param ass_paths2
+#'
+#' @param ex_dir
 #'
 #' @export
 
-mkcertificate <- function(data, col_names, col_hours, col_email, col_id, ass_paths1, ass_paths2, ex_dir = "."){
+mkcertificate <- function(data, col_names, col_hours, col_email, ass_paths1, ass_paths2, ex_dir = "."){
 
   lista <- org_data(data, col_names, col_hours, col_email)
+
+  if(ex_dir != ".")
+    dir.create(ex_dir)
 
   purrr::pmap(lista, build_certificate, ass_paths1, ass_paths2, ex_dir)
 }
 
 #' Build the Certificate
 #'
-#' \code(build_certificate) is the function responsible to generate the PDF.
+#' \code{build_certificate} is the function responsible to generate the PDF.
 #'
 #' @export
 

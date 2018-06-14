@@ -1,16 +1,21 @@
 Package: mkcertificate
 Title: Generate Certificates of Attendance
 Version: 0.1
-Authors@R: person("First", "Last", email = "rafael.coelho@gmail.com",
-                  role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Authors@R: person("Rafael", "Coelho", email = "rafael.coelho@gmail.com", role = c("aut", "cre"))
+Description: Creates certificates of attendance based on data given by the user.
 Depends: 
-  R (>= 3.1.0)
-Imports:
-    magick (>= 1.9),
-    digest (>= 0.6.15),
-    purrr (>= 0.2.4),
-    stringr (>= 1.3.1)
-License: MIT
+  R (>= 3.3.0)
+URL: https://github.com/p4hUSP/mkcertificate
+BugReports: https://github.com/p4hUSP/mkcertificate/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Imports:
+  magick (>= 1.9),
+  digest (>= 0.6.15),
+  dplyr (>= 0.7.5),
+  purrr (>= 0.2.4),
+  readr (>= 1.1.1),
+  stringr (>= 1.3.1),
+  magrittr (>= 1.5)
