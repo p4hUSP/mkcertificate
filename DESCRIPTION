@@ -8,6 +8,9 @@ Depends:
   R (>= 3.1.0)
 Imports:
     magick (>= 1.9),
-    digest (>= 0.6.15)
+    digest (>= 0.6.15),
+    purrr (>= 0.2.4),
+    stringr (>= 1.3.1)
 License: MIT
 LazyData: true
+RoxygenNote: 6.0.1
