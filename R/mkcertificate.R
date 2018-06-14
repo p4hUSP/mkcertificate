@@ -2,16 +2,36 @@
 #'
 library(magrittr)
 
-mkcertificate <- function(data_list, ass_paths = "DEMO/PRIMEIRAASSINATURA.png"){
-  names_vector <- data[[col_name]]
+mkcertificate <- function(data, col_names, col_hours, col_email, col_id, ass_paths1, ass_paths2, ex_dir = "."){
 
+  lista <- org_data(data, col_names, col_hours, col_email)
+
+  purrr::pmap(lista, build_certificate, ass_paths1, ass_paths2, ex_dir)
+}
+
+org_data <- function(data, col_names, col_hours, col_email){
+
+  names <- data[[col_names]]
+
+  hours <- as.character(data[[col_hours]])
+
+  email <- data[[col_email]]
+
+  lista <- list(names = names,
+                hours = hours,
+                email = email)
+
+  return(lista)
+}
+
+build_certificate <- function(names, hours, email, ass_paths1, ass_paths2, ex_dir){
   texto_base <- mkcertificate::template
 
   texto_uso <- texto_base %>%
-    stringr::str_replace("NOMEALUNO", "NOMEDOALUNO") %>%
-    stringr::str_replace("HORASCOMPLETAS", "HORASCOMPLETAS") %>%
-    stringr::str_replace("PRIMEIRAASSINATURA", normalizePath(ass_paths)) %>%
-    stringr::str_replace("SEGUNDAASSINATURA", normalizePath(ass_paths))
+    stringr::str_replace("NOMEALUNO", names) %>%
+    stringr::str_replace("HORASCOMPLETAS", hours) %>%
+    stringr::str_replace("PRIMEIRAASSINATURA", normalizePath(ass_paths1)) %>%
+    stringr::str_replace("SEGUNDAASSINATURA", normalizePath(ass_paths2))
 
   temp_dir <- tempdir()
 
@@ -31,12 +51,6 @@ mkcertificate <- function(data_list, ass_paths = "DEMO/PRIMEIRAASSINATURA.png"){
   setwd(temp_dir)
   system(sprintf("pdflatex %s", temp_file))
   setwd(current_wd)
-  system(sprintf("cp %s.pdf teste.pdf", temp_file))
-
+  system(sprintf("cp %s.pdf %s/%s.pdf", temp_file, ex_dir, digest::digest(email)))
 }
-# template <- readLines(con = file("R/certificate_template.tex"))
-#
-# devtools::use_data(template)
 
-# border <- magick::image_read("DEMO/border-2.jpg")
-# devtools::use_data(border)
