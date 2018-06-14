@@ -1,11 +1,12 @@
 Package: mkcertificate
-Title: What The Package Does (one line, title case required)
+Title: Generate Certificates of Attendance
 Version: 0.1
-Authors@R: person("First", "Last", email = "first.last@example.com",
+Authors@R: person("First", "Last", email = "rafael.coelho@gmail.com",
                   role = c("aut", "cre"))
 Description: What the package does (one paragraph)
 Depends: 
-  R (>= 3.1.0),
-  magick
-License: What license is it under?
+  R (>= 3.1.0)
+Imports:
+    magick
+License: MIT
 LazyData: true
