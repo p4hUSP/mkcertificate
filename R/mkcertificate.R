@@ -6,13 +6,14 @@ mkcertificate <- function(data_list, border = "border.jpg", ass_paths = "R/PRIME
   names_vector <- data[[col_name]]
   texto_base <- mkcertificate::template
   texto_uso <- texto_base %>%
-    stringr::str_replace("NOMEALUNO", "Rafael de Castro Coelho Silva") %>%
-    stringr::str_replace("HORASCOMPLETAS", "25") %>%
+    stringr::str_replace("NOMEALUNO", NOME_DO_ALUNO) %>%
+    stringr::str_replace("HORASCOMPLETAS", HORAS_COMPLETAS) %>%
     stringr::str_replace("PRIMEIRAASSINATURA", normalizePath(ass_paths)) %>%
-    stringr::str_replace("SEGUNDAASSINATURA", normalizePath(ass_paths)) %>%
-    stringr::str_replace("HORASCOMPLETAS", "25")
+    stringr::str_replace("SEGUNDAASSINATURA", normalizePath(ass_paths))
 
   temp_dir <- tempdir()
+
+  border <- magick::image_read("")
 
   texto_base <- stringr::str_replace(texto_base, "BORDERPATH", normalizePath(border))
 
@@ -32,5 +33,5 @@ mkcertificate <- function(data_list, border = "border.jpg", ass_paths = "R/PRIME
 #
 # devtools::use_data(template)
 
-# border <- magick::image_read("R/border-2.jpg")
+# border <- magick::image_read("DEMO/border-2.jpg")
 # devtools::use_data(border)
