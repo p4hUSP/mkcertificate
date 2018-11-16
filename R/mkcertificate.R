@@ -35,12 +35,11 @@ mkcertificate <- function(data, col_names, col_hours, col_email, ass_paths1, ass
 #'
 #' @export
 
-build_certificate <- function(names, hours, email, ass_paths1, ass_paths2, scale_ass1, scale_ass2, ex_dir){
+build_certificate <- function(text, email, ass_paths1, ass_paths2, scale_ass1, scale_ass2, ex_dir){
   texto_base <- mkcertificate::template
 
   texto_uso <- texto_base %>%
-    stringr::str_replace("NOMEALUNO", names) %>%
-    stringr::str_replace("HORASCOMPLETAS", hours) %>%
+    stringr::str_replace("TEXTO_INTERNO", text) %>%
     stringr::str_replace("PRIMEIRAASSINATURA", normalizePath(ass_paths1)) %>%
     stringr::str_replace("SEGUNDAASSINATURA", normalizePath(ass_paths2)) %>%
     stringr::str_replace("ESCALAASS1", scale_ass1) %>%
